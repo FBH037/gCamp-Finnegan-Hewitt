@@ -39,18 +39,38 @@
   </nav>
 
 
-
+  <div class= "container">
 <%= yield %>
 
-<hr>
-<div class="container">
+
 <footer>
-  <p>&copy; Company 2014</p>
-</footer>
+  <div class="row">
+    <div class= "col-md-6">
+      <a href="/about">About</a>
+      |
+      <a href="/terms">Terms</a>
+      |
+      <a href="/faq">FAQ</a>
+      |
+      <a href="/tasks">Tasks</a>
+    </div>
 
+    <div class="col-md-6 text-right">
 
-</div> <!-- /container -->
+      <a href="https://www.linkedin.com">
+        <%= image_tag("linked_in-f852478f8950eb3fca3367cb545aaa52.jpg", class: "img-footer") %>
 
+      </a>
+      <a href="https://github.com/">
+        <%= image_tag("GitHub-de8164cc6a609537cfdab331e002ebb3.png", class: "img-footer") %>      </a>
+      <a href="https://twitter.com/">
+        <%= image_tag("Twitter-0c8c529fb7181e05ab5c30416e3a70fa.png", class: "img-footer") %>      </a>
+      <a href="https://students.gschool.it/">
+        <%= image_tag("galvanize-g-b3da24895ed7d4fd33c43d9226c16242.png", class: "img-footer") %>      </a>        </div>
+    </div>
+
+  </footer>
+</div>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -69,4 +89,4 @@
 
 <!--
 <div class="jumbotron" style="
-background-image: url("http://i.imgur.com/a1IuesO.jpg");"></div> -->z
+background-image: url("http://i.imgur.com/a1IuesO.jpg");"></div> -->

@@ -1,7 +1,47 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-h1 {color: black}
-h3 {color: gray}
+h1 {color: black;}
+h3 {color: gray;}
 
-body { padding-top: 70px; }
+body { padding-top: 60px; }
+
+.img-footer {
+  max-width: 2em;
+  max-height: 2em;
+  margin-right: .5em;
+}
+
+
+footer {
+  padding-bottom: 15px;
+}
+
+.panel-primary .panel-heading{
+  background-color: #428bca;
+}
+
+.navbar .navbar-brand{
+  color: #777777;
+}
+
+footer{
+  padding: 1em 0;
+  border-top: 1px solid #ccc;
+  margin-top: 1em;
+}
+
+
+
+
+// .jumbotron {
+//   border: 5px;
+//   border-color: black;
+//   border-style: solid;
+// }
+//
+// .col-md-4{
+//   border: 5px;
+//   border-color: black;
+//   border-style: solid;
+// }
