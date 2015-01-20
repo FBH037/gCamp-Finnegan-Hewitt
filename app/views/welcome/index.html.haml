@@ -29,3 +29,10 @@
           %ul
             %li Comment on tasks and documents
             %li Get email notifications
+
+  -@quotes.each do |quote|
+    %ul.quote
+      = quote[0]
+      %ul
+      %em.text-muted
+        = quote[1]
