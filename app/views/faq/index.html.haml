@@ -1,0 +1,30 @@
+%html
+  <body id="top"> </a>
+  %h1.page-header Frequently Asked Questions
+  %ul
+    %li
+      = link_to @faq.question[0], "#what_is_gcamp"
+    %li
+      = link_to @faq.question[1], "#how_do_i_join_gcamp"
+    %li
+      = link_to @faq.question[2], "#when_will_gcamp_be_finished"
+
+  <a id="what_is_gcamp"> </a>
+  %h3
+    = @faq.question[0]
+  %p
+    = @faq.answer[0]
+  = link_to "Top", "#top"
+  <a id="how_do_i_join_gcamp"> </a>
+  %h3
+    = @faq.question[1]
+  %p
+    = @faq.answer[1]
+  = link_to "Top", "#top"
+  <a id="when_will_gcamp_be_finished"> </a>
+  %h3
+    = @faq.question[2]
+  %p
+    = @faq.answer[2]
+
+  = link_to "Top", "#top"

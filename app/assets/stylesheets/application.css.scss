@@ -7,6 +7,7 @@
 body {
   padding-top: 60px;
   background-color: white;
+  padding-bottom: 60px;
   }
 
 hr {
@@ -14,16 +15,15 @@ hr {
   border-color: black;
   }
 
-.author
-{
-
-
+.page-footer{
+  border-top: 1px solid black;
+  margin-top: 20px;
 }
 
-.author{
-  color: gray;
-}
+.page-header{
+  border-bottom: 1px solid black;
 
+}
 
 // .page-header {
 //   border-width: 2px;
@@ -52,11 +52,7 @@ hr {
 //   color: #777777;
 // }
 //
-// footer{
-//   padding: 1em 0;
-//   border-top: 1px solid #ccc;
-//   margin-top: 1em;
-// }
+
 
 
 
