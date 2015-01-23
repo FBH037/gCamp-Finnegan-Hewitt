@@ -1,30 +1,40 @@
 %html
-  <body id="top"> </a>
   %h1.page-header Frequently Asked Questions
   %ul
-    %li
-      = link_to @faq.question[0], "#what_is_gcamp"
-    %li
-      = link_to @faq.question[1], "#how_do_i_join_gcamp"
-    %li
-      = link_to @faq.question[2], "#when_will_gcamp_be_finished"
+  - @faqs.each do |faqs|
+    %ul= link_to faqs.question, "#" + faqs.slug
 
-  <a id="what_is_gcamp"> </a>
-  %h3
-    = @faq.question[0]
-  %p
-    = @faq.answer[0]
-  = link_to "Top", "#top"
-  <a id="how_do_i_join_gcamp"> </a>
-  %h3
-    = @faq.question[1]
-  %p
-    = @faq.answer[1]
-  = link_to "Top", "#top"
-  <a id="when_will_gcamp_be_finished"> </a>
-  %h3
-    = @faq.question[2]
-  %p
-    = @faq.answer[2]
+  -@faqs.each do |faqs|
+    %a{:id => faqs.slug}
+    %h3=faqs.question
+    = faqs.answer
+    %p= link_to "Top", "#top"
 
-  = link_to "Top", "#top"
+
+
+    -# -@faqs.each do |faqs|
+  -#   %li
+  -#   = link_to @faqs.question, ("#" + faqs.slug)
+
+  -# =faqs.slug
+  -# <p id="<%= common_question.slug %>"><%=
+
+  -# %a#what-is-gcamp
+  -# %h3
+  -#   = @faq.question[0]
+  -# %p
+  -#   = @faq.answer[0]
+  -# = link_to "Top", "#top"
+  -# <a id="how-do-i-join-gcamp"> </a>
+  -# %h3
+  -#   = @faq.question[1]
+  -# %p
+  -#   = @faq.answer[1]
+  -# = link_to "Top", "#top"
+  -# %a#when-will-gcamp-be-finished
+  -# %h3
+  -#   = @faq.question[2]
+  -# %p
+  -#   = @faq.answer[2]
+  -#
+  -# = link_to "Top", "#top"

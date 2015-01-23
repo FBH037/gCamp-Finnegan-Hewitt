@@ -1,6 +1,7 @@
 !!!
 %html
   %head
+    %a{:id => "top"}
     %title GCampFinneganHewitt
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -12,9 +13,10 @@
           %a.navbar-brand{:href => "/"} gCamp
     .container
       = yield
-      .row
-        .col-xs-12
-          .page-footer
+      .page-footer
+        .row
+          .col-xs-10
+
             %a.button{:href => "/about"} About
             |
             = link_to "Terms", terms_path
@@ -22,13 +24,12 @@
             %a.button{:href => "/faq"} FAQ
             |
             %a.button{:href => "/tasks"} Tasks
+          .col-xs-2{:align => "right"}
+            =link_to(image_tag("linked_in-f852478f8950eb3fca3367cb545aaa52.jpg", class: "img-footer"), "https://linkedin.com/pub/finnegan-hewitt/71/94a/632")
+            =link_to(image_tag("GitHub-de8164cc6a609537cfdab331e002ebb3.png", class: "img-footer"), "https://github.com/FBH037")
+            =link_to(image_tag("Twitter-0c8c529fb7181e05ab5c30416e3a70fa.png", class: "img-footer"), "https://twitter.com/@fbhewitt")
+            =link_to(image_tag("galvanize-g-b3da24895ed7d4fd33c43d9226c16242.png", class: "img-footer"), "https://students.gschool.it/students/203")
 
-        -# %href= image_tag("8864977481_713b7cbda5_b.jpg", class: "img-responsive")
-
-
-
-
-
-              %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
-              %script{:src => "../../dist/js/bootstrap.min.js"}
-              %script{:src => "../../assets/js/ie10-viewport-bug-workaround.js"}
+            %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
+            %script{:src => "../../dist/js/bootstrap.min.js"}
+            %script{:src => "../../assets/js/ie10-viewport-bug-workaround.js"}
