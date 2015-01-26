@@ -3,7 +3,7 @@ class CreateTasks < ActiveRecord::Migration
     create_table :tasks do |t|
       t.string :description
       t.timestamps null: false
-      t.date_of_birth :date_of_birth
+      t.date :due_date
     end
   end
 end
