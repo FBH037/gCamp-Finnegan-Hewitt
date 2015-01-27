@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" class= "alert alert-success"><%= notice %></p>
 
+<h1 class="page-header"> <%= @task.description %></h1>
 <p>
-  <strong>Description:</strong>
-  <%= @task.description %>
+  <strong> Description: </strong>
+
 </p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
