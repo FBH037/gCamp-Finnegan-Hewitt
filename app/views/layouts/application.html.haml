@@ -12,6 +12,19 @@
         .navbar-header
           %a.navbar-brand{:href => "/"} gCamp
     .container
+      - flash.each do |type, message|
+        - if type == "notice"
+          %b
+            %center
+              .alert.alert-success= message
+        - elsif type == "alert"
+          %b
+            %center
+              .alert.alert-danger= message
+
+
+
+
       = yield
       .page-footer
         .row
