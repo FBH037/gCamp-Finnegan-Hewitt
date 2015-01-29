@@ -1,9 +1,18 @@
 == README
 
 gCamp project
-   
+
 * Ruby version
 2.2.0
+
+[View on Heroku](https://arcane-cove-4236.herokuapp.com)
+
+To install:
+```
+bundle
+rake db:create db:migrate db:seed
+rails s
+```
 
 * System dependencies
 

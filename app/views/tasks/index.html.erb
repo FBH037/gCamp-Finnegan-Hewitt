@@ -20,9 +20,10 @@
       <tr>
 
         <td ><%= link_to task.description, task%></td>
+        <td ><%= task.due_date%></td>
 
         <td class= "text-right">
-          <a class= 'btn btn-info' <%= link_to 'Edit', edit_task_path(task) %>
+        <a class= 'btn btn-info' <%= link_to 'Edit', edit_task_path(task) %>
         <a class= 'btn btn-danger' <%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
