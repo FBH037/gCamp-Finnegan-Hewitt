@@ -1,0 +1,9 @@
+<h1 class= "page-header">Editing User</h1>
+<ol class= "breadcrumb">
+  <li><a href="/users">Users</a></li>
+  <li class="active"><%= link_to @user.full_name, user_path%> </li>
+  <li class="active"><%=@user.full_name %></li>
+</ol>
+
+
+<%= render 'form' %>
