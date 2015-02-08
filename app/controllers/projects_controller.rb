@@ -35,9 +35,9 @@ end
 end
 
 def destroy
-@project = Project.find(params[:id])
+
   @project.destroy
-  redirect_to projects_path, notice: 'Project was successfully destroyed'
+  redirect_to @projects, notice: 'Project was successfully destroyed'
 end
 
 private
