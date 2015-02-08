@@ -9,8 +9,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-  end
 
+  end
   def show
     @user = User.find(params[:id])
   end

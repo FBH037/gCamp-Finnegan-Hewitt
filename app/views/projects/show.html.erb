@@ -1,0 +1,10 @@
+<h1 class = "page-header"><%= @project.name %>
+
+  <button class= 'btn btn-info pull-right' <%= link_to 'Edit', edit_project_path(@project)%>
+  <button class= 'btn btn-danger pull-right' <%= link_to 'Delete', project_path(@project), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+</h1>
+<ol class= 'breadcrumb'>
+  <li><a href= '/projects'>Projects</a></li>
+  <li class='active'><%=@project.name%></li>
+</ol>
