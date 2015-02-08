@@ -40,7 +40,7 @@ end
 private
 
 def set_project
-  @project = Task.find(params[:id])
+  @project = Project.find(params[:id])
 end
 def project_params
   params.require(:project).permit(:name)
