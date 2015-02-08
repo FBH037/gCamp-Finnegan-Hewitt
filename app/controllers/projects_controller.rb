@@ -1,11 +1,11 @@
 class ProjectsController<ApplicationController
+before_action :set_project, only: [:show, :edit, :update, :destroy]
 
 def index
 @projects = Project.all
 end
 
 def show
-  @project = Project.find(params[:id])
 end
 
 def new
@@ -22,11 +22,9 @@ def create
 end
 
 def edit
-@project = Project.find(params[:id])
 end
 
 def update
-  @project = Project.find(params[:id])
 if @project.update(project_params)
   redirect_to project_path, notice: 'Project was successfully updated.'
 else
@@ -35,12 +33,15 @@ end
 end
 
 def destroy
-
   @project.destroy
   redirect_to @projects, notice: 'Project was successfully destroyed'
 end
 
 private
+
+def set_project
+  @project = Task.find(params[:id])
+end
 def project_params
   params.require(:project).permit(:name)
 end
