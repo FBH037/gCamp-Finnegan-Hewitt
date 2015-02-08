@@ -26,7 +26,7 @@ end
 
 def update
 if @project.update(project_params)
-  redirect_to project_path, notice: 'Project was successfully updated.'
+  redirect_to @project, notice: 'Project was successfully updated.'
 else
   render :edit
 end
@@ -34,14 +34,16 @@ end
 
 def destroy
   @project.destroy
-  redirect_to @projects, notice: 'Project was successfully destroyed'
+  redirect_to projects_path, notice: 'Project was successfully destroyed'
 end
 
 private
 
 def set_project
+  
   @project = Project.find(params[:id])
 end
+
 def project_params
   params.require(:project).permit(:name)
 end
