@@ -1,18 +1,6 @@
 <%= form_for @user, html:{class: "form-horizontal"} do |f| %>
-  <% if @user.errors.any? %>
-  <div id="error_explanation" class= "col-md-offset-1 col-md-10 alert alert-danger">
-    <h4><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h4>
 
-    <ul class= "">
-      <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
-  <div class= "col-md-12">
-  </div>
-
+<%= render partial: "shared/errors", locals: {object: @user} %>
 
 <form class="form-horizontal">
   <div class= "form-group">

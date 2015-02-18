@@ -1,15 +1,6 @@
 <%= form_for @project, html:{class: "form-horizontal"} do |f| %>
-  <% if @project.errors.any? %>
-  <div id="error_explanation" class= "col-md-offset-1 col-md-10 alert alert-danger">
-    <h4><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h4>
+  <%= render partial: "shared/errors", locals: {object: @project} %>
 
-    <ul class= "">
-      <% @project.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
 
   <div class= "col-md-12">
   </div>
