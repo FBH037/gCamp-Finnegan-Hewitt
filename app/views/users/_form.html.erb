@@ -2,7 +2,6 @@
 
 <%= render partial: "shared/errors", locals: {object: @user} %>
 
-<form class="form-horizontal">
   <div class= "form-group">
     <%= f.label :first_name, class: "control-label col-md-2" %>
     <div class= "form-controls col-md-4">
@@ -35,5 +34,4 @@
       <%= link_to "Cancel", "/users", class: "btn btn-default" %>
     </div>
   </div>
-</form>
 <% end %>
