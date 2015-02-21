@@ -13,11 +13,18 @@
         .navbar-header
           %a.navbar-brand{:href => "/"} gCamp
         .ul-nav.navbar-nav.navbar-right.nav
-          %li
-            = link_to "User Show Page", users_path
-          %li
-            = link_to "Sign Up", signup_path
+          - if current_user
+            %li
+              = link_to "#{current_user.full_name}", user_path(current_user)
+            %li
+              = link_to "Sign Out", signout_path
+          - else
+            %li
+              = link_to "Sign Up", signup_path
+            %li
+              = link_to "Sign In", signin_path
     .container
+      
       - flash.each do |type, message|
         - if type == "notice"
           %b

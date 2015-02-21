@@ -1,5 +1,6 @@
 class ProjectsController<ApplicationController
 before_action :set_project, only: [:show, :edit, :update, :destroy]
+before_filter :authorize
 
 def index
 @projects = Project.all
@@ -40,7 +41,7 @@ end
 private
 
 def set_project
-  
+
   @project = Project.find(params[:id])
 end
 
