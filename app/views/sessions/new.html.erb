@@ -1,0 +1,32 @@
+<div class= "well col-md-4 col-md-offset-4">
+  <h1 class= "container-fluid">Sign In</h1>
+  <%= form_tag signin_path, html:{class: "form-horizontal"} do%>
+    <%# render partial: "shared/errors", locals: {object: current_user} %>
+    <div class= "form-group">
+      <%= label_tag :email, "Email", class: "col-md-12" %>
+      <div class= "form-controls col-md-12">
+        <%= email_field_tag :email, "", class: "form-control"%>
+      </div>
+    </div>
+
+    <div class= "form-group">
+      <%= label_tag :password, "Password", class: "col-md-12"%>
+      <div class= "form-controls col-md-12">
+        <%= password_field_tag :password, "", class: "form-control" %>
+      </div>
+    </div>
+    <div class= "form-group">
+      <%= label_tag :password_confirmation, "Password Comfirmation", class: "col-md-12"%>
+      <div class= "form-controls col-md-12">
+        <%= password_field_tag :password_confirmation, "", class: "form-control" %>
+      </div>
+
+    </div>
+    <div class= "container-fluid"
+    <div class="form-group">
+        <%= submit_tag "Sign In", class: "btn btn-primary", id: "formtagbutton" %>
+        <%= link_to "Cancel", "/", class: "btn btn-default", id: "formtagbutton" %>
+    </div>
+    </div>
+    <% end %>
+  </div>

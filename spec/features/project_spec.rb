@@ -1,6 +1,6 @@
 require 'rails_helper'
 describe 'user can CRUD project' do
-  scenario 'project can create project' do
+  scenario 'user can create project' do
     visit '/projects'
     click_on "New Project"
     fill_in 'Name', :with => 'joe'

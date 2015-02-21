@@ -1,14 +1,21 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-// h1 {color: black;}
-// h3 {color: gray;}
-//
+.well {
+  margin-top: 40px;
+}
+
 body {
   padding-top: 60px;
   background-color: white;
   padding-bottom: 60px;
   }
+
+#formtagbutton {
+  margin-top: 15px;
+  }
+
+
 
 hr {
   border-width: 2px;

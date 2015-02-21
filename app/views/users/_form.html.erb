@@ -21,17 +21,29 @@
       <%= f.email_field :email, class: "form-control" %>
     </div>
   </div>
-
+  <div class= "form-group">
+    <%= f.label :password, class: "control-label col-md-2" %>
+    <div class= "form-controls col-md-4">
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+  </div>
+  <div class= "form-group">
+    <%= f.label :password_confirmation, class: "control-label col-md-2" %>
+    <div class= "form-controls col-md-4">
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+    </div>
+  </div>
 
   <div class="form-group">
     <div class = "col-md-offset-2 col-md-4">
-      <% if path = @user.new_record? %>
+
+      <% if @user.new_record? %>
       <%= f.submit "Create User", class: "btn btn-primary"  %>
       <% else %>
       <%= f.submit "Update User", class: "btn btn-primary"  %>
-      <a class= 'btn btn-danger' <%= link_to 'Delete', user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to "Delete User", user_path(@user), class: "btn btn-danger",method: :delete, data: {confirm: "Are you sure?"}  %>
       <% end %>
       <%= link_to "Cancel", "/users", class: "btn btn-default" %>
     </div>
   </div>
-<% end %>
+  <% end %>
