@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/FBH037/gCamp-Finnegan-Hewitt.svg?branch=master)](https://travis-ci.org/FBH037/gCamp-Finnegan-Hewitt)
+
 == README
 
 gCamp project
