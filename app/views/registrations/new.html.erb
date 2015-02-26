@@ -1,8 +1,9 @@
 
 <div class= "well col-md-4 col-md-offset-4">
 <h1>Sign Up for gCamp!</h1>
-<%= form_for @user, html:{class: "form-horizontal"} do |f| %>
-<%= render partial: "shared/errors", locals: {object: @user} %>
+<!-- , :url => {:controller => "your-controller-name", :action => "your-action-name"} -->
+<%= form_for @registration, html: {class: "form-horizontal"}, action: :create, url: "sign-up" do |f| %>
+<%= render partial: "shared/errors", locals: {object: @registration} %>
 <div class= "form-group">
   <%= f.label :first_name, class: "col-md-12" %>
   <div class= "form-controls col-md-12">
@@ -38,7 +39,7 @@
 
 <div class="form-group">
   <div class = "container-fluid">
-    <%= f.submit "Sign Up", class: "btn btn-primary"  %>
+    <%= f.submit "Sign Up",  class: "btn btn-primary"  %>
     <%= link_to "Cancel", "/", class: "btn btn-default" %>
   </div>
 </div>

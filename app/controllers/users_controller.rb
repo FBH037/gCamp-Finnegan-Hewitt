@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    # @user = User.find(params[:id])
+    if session[:user_id] == @user.id then session[:user_id] = nil end
     @user.destroy
     redirect_to users_path, notice: 'User was successfully destroyed.'
   end

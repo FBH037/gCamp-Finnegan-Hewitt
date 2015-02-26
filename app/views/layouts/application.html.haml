@@ -24,7 +24,7 @@
             %li
               = link_to "Sign In", signin_path
     .container
-      
+
       - flash.each do |type, message|
         - if type == "notice"
           %b
@@ -60,5 +60,5 @@
             =link_to(image_tag("galvanize-g-b3da24895ed7d4fd33c43d9226c16242.png", class: "img-footer"), "https://students.gschool.it/students/203")
 
             %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
-            %script{:src => "../../dist/js/bootstrap.min.js"}
-            %script{:src => "../../assets/js/ie10-viewport-bug-workaround.js"}
+            -# %script{:src => "../../dist/js/bootstrap.min.js"}
+            -# %script{:src => "../../assets/js/ie10-viewport-bug-workaround.js"}
