@@ -1,8 +1,5 @@
 require 'rails_helper'
 
-
-
-
 describe 'user can CRUD a Task' do
   scenario 'user can create a Location' do
     user = User.create(first_name: 'finn', last_name: 'hewitt', email: 'fbhewitt@gmail.com', password: 'password')
