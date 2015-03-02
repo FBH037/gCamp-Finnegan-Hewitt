@@ -20,7 +20,7 @@ describe 'user can CRUD project' do
     fill_in "Password", with: 'password'
     click_button 'Sign In'
     click_on 'Projects'
-    visit "/projects/#{project.id}"
+    visit "/projects/#{project.id}/tasks"
     expect(page).to have_content('joe')
   end
   scenario 'user can update a project' do

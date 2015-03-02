@@ -4,9 +4,11 @@ before_filter :authorize
 
 def index
 @projects = Project.all
+
 end
 
 def show
+  @tasks = @project.tasks
 end
 
 def new
@@ -16,7 +18,7 @@ end
 def create
 @project = Project.new(project_params)
   if @project.save
-    redirect_to project_path(@project), notice: 'Project was successfully created.'
+    redirect_to project_tasks_path(@project), notice: 'Project was successfully created.'
   else
   render :new
   end
@@ -27,7 +29,7 @@ end
 
 def update
 if @project.update(project_params)
-  redirect_to @project, notice: 'Project was successfully updated.'
+  redirect_to project_tasks_path(@project), notice: 'Project was successfully updated.'
 else
   render :edit
 end

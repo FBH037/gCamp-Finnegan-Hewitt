@@ -1,7 +1,7 @@
 <h1 class= 'page-header'>Editing</h1>
 <ol class= 'breadcrumb'>
   <li><a href='/projects'>Projects</a></li>
-  <li class='active'><%= link_to @project.name, project_path%></li>
+  <li class='active'><%= link_to @project.name, project_tasks_path(@project)%></li>
   <li class='active'><%=@project.name%></li>
 </ol>
 <%= render 'form' %>

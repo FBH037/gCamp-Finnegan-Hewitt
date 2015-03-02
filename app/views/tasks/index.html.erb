@@ -1,34 +1,32 @@
-  
-<h1 class="page-header"> Tasks
-
-<a class='btn btn-default pull-right btn-info' href=/tasks/new> New Task</a>
+<h1 class = "page-header"><%= "Tasks for " + @project.name %>
+  <%= link_to 'Delete', project_path(@project), class: "btn btn-danger pull-right", method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-info pull-right'%>
 </h1>
+    <ol class= 'breadcrumb'>
+      <li> <%= link_to "Projects", projects_path%> </li>
+      <li class='active'><%=@project.name%></li>
+    </ol>
 
-<p id="notice"><%= notice %></p>
-
-<table class = "table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-
-    <% @tasks.each do |task| %>
-      <tr>
-
-        <td ><%= link_to task.description, task%></td>
-        <td ><%= task.due_date%></td>
-
-        <td class= "text-right">
-        <a class= 'btn btn-info' <%= link_to 'Edit', edit_task_path(task) %>
-        <a class= 'btn btn-danger' <%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+    <table class = "table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Completed</th>
+          <th>Due Date</th>
+          <th> <%= link_to "Add Task", new_project_task_path(@project), class: "btn btn-primary pull-right" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @project.tasks.each do |task| %>
+        <tr>
+          <td ><%= link_to task.description, project_task_path(@project, task)%></td>
+          <td> <%= task.task_completed %></td>
+          <td ><%= task.due_date%></td>
+          <td class= "text-right">
+            <%= link_to 'Edit Task', edit_project_task_path(@project, task), class: 'btn btn-info', id: 'click-me' %>
+            <%= link_to 'Delete Task', project_task_path(@project, task), class: 'btn btn-danger',  method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>

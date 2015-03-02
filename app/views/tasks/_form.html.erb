@@ -1,4 +1,4 @@
-<%= form_for @task, html:{class: "form-horizontal"} do |f| %>
+<%= form_for [@project ,@task], html:{class: "form-horizontal"} do |f| %>
 <%= render partial: "shared/errors", locals: {object: @task} %>
 
     <div class= "form-group">
@@ -7,7 +7,7 @@
         <%= f.text_field :description, class: "form-control" %>
       </div>
     </div>
-
+    <% unless @task.new_record? %>
     <div class="form-group">
       <%= f.label :due_date, class: "control-label col-md-2" %>
       <%= f.date_select :due_date %>
@@ -16,7 +16,7 @@
       <%= f.label :task_completed, class: "control-label col-md-2" %>
       <%= f.check_box :task_completed %>
     </div>
-
+    <% end %>
     <div class="form-group">
       <div class = "col-md-offset-2 col-md-4">
         <% if path = @task.new_record? %>
@@ -24,7 +24,7 @@
         <% else %>
         <%= f.submit "Update Task", class: "btn btn-primary"  %>
         <% end %>
-        <%= link_to "Cancel", "/tasks", class: "btn btn-default" %>
+        <%= link_to "Cancel", project_tasks_path(@project), class: "btn btn-default" %>
       </div>
     </div>
 <% end %>

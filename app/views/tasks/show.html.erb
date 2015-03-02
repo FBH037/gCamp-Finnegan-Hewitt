@@ -1,9 +1,18 @@
 
 
-<h1 class="page-header"> <%= @task.description %>
-<a class= 'btn btn-info pull-right' <%= link_to 'Edit', edit_task_path(@task) %>
+<h1 class="page-header"> <%="Task: " + @task.description %>
+<a class= 'btn btn-info pull-right' <%= link_to 'Edit', edit_project_task_path(@project, @task) %>
 </h1>
 <ol class= "breadcrumb">
-  <li><a href="/tasks">Tasks</a></li>
+  <li> <%= link_to "Projects", projects_path%></li>
+  <li> <%= link_to @project.name, project_tasks_path(@project) %></li>
   <li class="active"><%=@task.description%></li>
 </ol>
+
+<dl class="dl-horizontal">
+  <dt>Due Date</dt>
+  <dd> <%= @task.due_date %></dd>
+  <dt>Completed</dt>
+  <dd> <%= @task.task_completed %></dd>
+
+</dl>
