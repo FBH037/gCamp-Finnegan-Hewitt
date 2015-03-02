@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'user can CRUD a Task' do
-  scenario 'user can create a Location' do
+  scenario 'user can create a Task' do
     user = User.create(first_name: 'finn', last_name: 'hewitt', email: 'fbhewitt@gmail.com', password: 'password')
     project = Project.create(name: "projectile")
     visit '/sign-in'
@@ -10,6 +10,7 @@ describe 'user can CRUD a Task' do
     click_button 'Sign In'
     visit '/projects'
     click_on "projectile"
+    click_on "0 Tasks"
     click_on "Add Task"
     fill_in 'task_description', :with => "capy_test"
     click_on "Create Task"

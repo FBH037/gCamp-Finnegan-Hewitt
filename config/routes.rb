@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :projects, except: :show do
+  resources :projects do
     resources :tasks
   end
   # The priority is based upon order of creation: first created -> highest priority.
