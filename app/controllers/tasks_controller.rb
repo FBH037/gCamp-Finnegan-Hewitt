@@ -29,6 +29,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.project_id = @project.id
+    @task.task_completed = false
     respond_to do |format|
       if @task.save
         format.html { redirect_to project_tasks_path(@project), notice: 'Task was successfully created.' }

@@ -1,5 +1,22 @@
 require 'rails_helper'
   describe 'user can create and destroy a session' do
+
+    scenario 'user can not sign in without password' do
+      user = User.create(first_name: 'finn', last_name: 'hewitt', email: 'fbhewitt@gmail.com', password: 'password')
+      visit '/sign-in'
+      fill_in "Email", with: "fbhewitt@gmail.com"
+      click_button 'Sign In'
+      expect(page).to have_content("Email or password is invalid")
+    end
+
+    scenario 'user can not sign in without email' do
+      user = User.create(first_name: 'finn', last_name: 'hewitt', email: 'fbhewitt@gmail.com', password: 'password')
+      visit '/sign-in'
+      fill_in "Password", with: 'password'
+      click_button 'Sign In'
+      expect(page).to have_content("Email or password is invalid")
+    end
+
     scenario 'user can sign-in' do
       user = User.create(first_name: 'finn', last_name: 'hewitt', email: 'fbhewitt@gmail.com', password: 'password')
       visit '/sign-in'

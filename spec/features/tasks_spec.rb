@@ -21,7 +21,7 @@ describe 'user can CRUD a Task' do
   scenario 'user can view a show page for a Task' do
     user = User.create(first_name: 'finn', last_name: 'hewitt', email: 'fbhewitt@gmail.com', password: 'password')
     project = Project.create(name: "projectile")
-    task = Task.create(description: "capy_test", project_id: "#{project.id}")
+    task = Task.create(description: "capy_test", project_id: project.id, due_date: Date.today)
     visit '/sign-in'
     fill_in "Email", with: "fbhewitt@gmail.com"
     fill_in "Password", with: 'password'
@@ -33,7 +33,7 @@ describe 'user can CRUD a Task' do
   scenario "user can edit a Task" do
     user = User.create(first_name: 'finn', last_name: 'hewitt', email: 'fbhewitt@gmail.com', password: 'password')
     project = Project.create(name: "projectile")
-    task = Task.create(description: "capy_test", project_id: "#{project.id}")
+    task = Task.create(description: "capy_test", project_id: project.id, due_date: Date.today)
     visit '/sign-in'
      fill_in "Email", with: "fbhewitt@gmail.com"
      fill_in "Password", with: 'password'
@@ -49,7 +49,7 @@ describe 'user can CRUD a Task' do
   scenario 'user can delete a Task' do
     user = User.create(first_name: 'finn', last_name: 'hewitt', email: 'fbhewitt@gmail.com', password: 'password')
     project = Project.create(name: "projectile")
-    task = Task.create(description: "capy_test", project_id: "#{project.id}")
+    task = Task.create(description: "capy_test", project_id: project.id, due_date: Date.today)
     visit '/sign-in'
     fill_in "Email", with: "fbhewitt@gmail.com"
     fill_in "Password", with: 'password'

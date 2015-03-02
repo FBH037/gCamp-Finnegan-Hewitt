@@ -7,11 +7,13 @@
         <%= f.text_field :description, class: "form-control" %>
       </div>
     </div>
-    <% unless @task.new_record? %>
+
     <div class="form-group">
       <%= f.label :due_date, class: "control-label col-md-2" %>
       <%= f.date_select :due_date %>
     </div>
+    
+    <% unless @task.new_record? %>
     <div class="form-group">
       <%= f.label :task_completed, class: "control-label col-md-2" %>
       <%= f.check_box :task_completed %>
