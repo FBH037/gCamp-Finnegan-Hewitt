@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     if @user.save
       if session[:user_id].nil?
         session[:user_id] = @user.id
-        redirect_to users_path, notice: 'User was successfully created.'
+        redirect_to root_path, notice: 'User was successfully created.'
       else
         redirect_to users_path, notice: 'User was successfully created.'
       end
