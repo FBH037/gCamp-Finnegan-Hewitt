@@ -9,9 +9,12 @@ validates :role, presence: true
 validates :user_id, presence: true
 validate :duplication
 
-def duplication
-  unless user_id == project.users.find(user_id)
-    
-end
+  def duplication
+    unless user_id.nil?
+      if project.users.find_by_id(user_id)
+        errors[:base] << "User has already been added to this project"
+      end
+    end
+  end
 
 end

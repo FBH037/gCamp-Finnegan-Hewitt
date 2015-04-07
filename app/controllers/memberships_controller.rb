@@ -1,14 +1,14 @@
 class MembershipsController < ApplicationController
   before_action :set_project
+  before_action :set_memberships
 
   def index
     @membership = Membership.new
-    @memberships = @project.memberships
   end
 
-  # def new
-  #   @membership = Membership.new
-  # end
+  def new
+    @membership = Membership.new
+  end
 
   def create
     @membership = Membership.new(membership_params)
@@ -37,15 +37,14 @@ class MembershipsController < ApplicationController
     end
   end
 
-
 private
 
   def set_project
     @project = Project.find(params[:project_id])
   end
 
-  def set_membership
-    @membership = Membership.find(params[:id])
+  def set_memberships
+    @memberships = @project.memberships
   end
 
   def membership_params
