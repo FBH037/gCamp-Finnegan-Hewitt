@@ -7,10 +7,10 @@ belongs_to :project
 
 validates :role, presence: true
 validates :user_id, presence: true
-validate :duplication
+validate :duplication, on: :create
 
   def duplication
-    unless user_id.nil?
+    if user_id
       if project.users.find_by_id(user_id)
         errors[:base] << "User has already been added to this project"
       end

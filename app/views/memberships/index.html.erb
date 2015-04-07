@@ -8,14 +8,17 @@
 
 <%= render partial: "shared/errors", locals: {object: @membership} %>
 
-<div class= "well form-inline">
-  <%= form_for [@project, @membership] do |f|%>
-      <%= f.collection_select(:user_id, User.all, :id, :full_name, {prompt: "Please select a user..."}, class: "form-control")%>
-      <%= f.select(:role, [["Member", :member],["Owner", :owner]],  {prompt: "this is a blank"}, class: "form-control")%>
-      <%= f.submit "Add New Member", class: "btn btn-primary" %>
-  <% end %>
+<div class="row">
+  <div class= "col-md-12">
+    <div class= "well form-inline">
+      <%= form_for [@project, @membership] do |f|%>
+          <%= f.collection_select(:user_id, User.all, :id, :full_name, {prompt: "Please select a user..."}, class: "form-control")%>
+          <%= f.select(:role, [["Member", :member],["Owner", :owner]],  {prompt: "this is a blank"}, class: "form-control")%>
+          <%= f.submit "Add New Member", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 </div>
-
 
 <table>
   <tbody>
