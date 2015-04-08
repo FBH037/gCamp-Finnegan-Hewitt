@@ -55,7 +55,7 @@ describe 'user can CRUD a Task' do
     fill_in "Password", with: 'password'
     click_button 'Sign In'
     visit("projects/#{project.id}/tasks/")
-    click_link("Delete Task")
+    click_link( "ex")
     expect(page).to have_content('Task was successfully destroyed')
     expect(page).to have_no_content('capy_test')
   end

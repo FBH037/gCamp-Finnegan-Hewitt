@@ -32,8 +32,12 @@ class MembershipsController < ApplicationController
 
   def destroy
     @membership = Membership.find(params[:id])
-    if @membership.destroy
-      redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was successfully removed"
+    if @membership.project.users.count != 1
+      if @membership.destroy
+        redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was successfully removed"
+      end
+    else
+      redirect_to project_memberships_path(@project, error: "Unable to delete last member of project")
     end
   end
 

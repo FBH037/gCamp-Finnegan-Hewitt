@@ -25,7 +25,7 @@ require 'rails_helper'
       click_button 'Sign In'
       expect(page).to have_content("finn hewitt")
       expect(page).to have_content("Logged In")
-      expect(page).to have_content("Your life, organized.")
+      expect(page).to have_content("Projects")
     end
     scenario 'user can sign-out' do
       user = User.create(first_name: 'finn', last_name: 'hewitt', email: 'fbhewitt@gmail.com', password: 'password')
@@ -36,6 +36,6 @@ require 'rails_helper'
       click_link "Sign Out"
       expect(page).to have_content("Sign In")
       expect(page).to have_content("Logged Out")
-      expect(page).to have_content("Your life, organized.")
+      expect(page).to have_content("Projects")
     end
   end

@@ -7,6 +7,13 @@
 </ol>
 
 <%= render partial: "shared/errors", locals: {object: @membership} %>
+<% if params[:error] %>
+<div id="error_explanation" class= "col-md-offset-1 col-md-10 alert alert-danger">
+  <ul>
+    <%=params[:error]%>
+  </ul>
+</div>
+<% end %>
 
 <div class="row">
   <div class= "col-md-12">
