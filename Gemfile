@@ -40,7 +40,7 @@ gem 'pg'
 group :production do
   gem 'rails_12factor'
   gem 'rspec-rails'
-  
+  gem "database_cleaner"
 end
 
 group :development, :test do
