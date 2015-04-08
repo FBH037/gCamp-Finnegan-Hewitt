@@ -40,6 +40,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user.comments.each do |comment|
+      comment.user_id = nil
+      comment.save
+    end
     if session[:user_id] == @user.id then session[:user_id] = nil end
     @user.destroy
     redirect_to users_path, notice: 'User was successfully destroyed.'

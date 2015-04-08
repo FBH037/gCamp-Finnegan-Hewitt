@@ -11,7 +11,7 @@ validates :email, presence: true, uniqueness: true
 validates :password, presence: true
 
 has_many :comments
-has_many :memberships
+has_many :memberships, dependent: :destroy
 has_many :projects, through: :memberships
 
 end

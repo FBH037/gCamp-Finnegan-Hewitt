@@ -22,7 +22,11 @@
 <% @comments.each do |comment| %>
 <div class= "row">
   <div class= "col-md-3">
-    <%= link_to comment.user.full_name, user_path(comment.user)%><br>
+    <% if comment.user_id == nil %>
+      "(deleted user)"<br>
+    <% else %>
+      <%= link_to comment.user.full_name, user_path(comment.user)%><br>
+    <% end %>
       <a class= "text-muted"><%= time_ago_in_words(comment.created_at) + " ago"%></a>
   </div>
   <div class= "col-md-9">
