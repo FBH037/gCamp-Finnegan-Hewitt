@@ -20,13 +20,13 @@
       <tbody>
         <% @project.tasks.each do |task| %>
         <tr>
-          <td> <%= task.description %></td>
+          <td> <%= task.description %> <a class="badge"> <%= task.comments.count %> </a></td>
           <td> <%= task.task_completed %></td>
           <td><%= task.due_date.strftime"%m/%d/%y" %> </td>
           <td class= "text-right">
             <%= link_to 'Show Task', project_task_path(@project, task), class: 'btn btn-success' %>
             <%= link_to 'Edit Task', edit_project_task_path(@project, task), class: 'btn btn-info'%>
-            <%= link_to 'Delete Task', project_task_path(@project, task), class: 'btn btn-danger',  method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to '', project_task_path(@project, task), class: 'glyphicon glyphicon-remove',  method: :delete, data: { confirm: 'Are you sure?' } %>
           </td>
         </tr>
         <% end %>
