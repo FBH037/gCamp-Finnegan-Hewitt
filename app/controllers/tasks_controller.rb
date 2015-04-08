@@ -3,29 +3,28 @@ class TasksController < ApplicationController
   before_action :set_project
   before_filter :authorize
 
-  # GET /tasks
-  # GET /tasks.json
+
   def index
     @tasks = Task.all
     @project = Project.find(params[:project_id])
   end
 
-  # GET /tasks/1
-  # GET /tasks/1.json
+
   def show
+  @comments = @task.comments
+  @comment = Comment.new
   end
 
-  # GET /tasks/new
+
   def new
     @task = Task.new
   end
 
-  # GET /tasks/1/edit
+
   def edit
   end
 
-  # POST /tasks
-  # POST /tasks.json
+
   def create
     @task = Task.new(task_params)
     @task.project_id = @project.id

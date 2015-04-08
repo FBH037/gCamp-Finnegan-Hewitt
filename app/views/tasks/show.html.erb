@@ -15,5 +15,32 @@
   <dd> <%= @task.due_date %></dd>
   <dt>Completed</dt>
   <dd> <%= @task.task_completed %></dd>
-
 </dl>
+
+<h4>Comments</h4>
+
+<% @comments.each do |comment| %>
+<div class= "row">
+  <div class= "col-md-3">
+    <%= link_to comment.user.full_name, user_path(comment.user)%><br>
+      <a class= "text-muted"><%= time_ago_in_words(comment.created_at) + " ago"%></a>
+  </div>
+  <div class= "col-md-9">
+    <%= comment.description %>
+  </div>
+</div>
+<% end %>
+
+
+
+<div class= "row">
+  <div class = "col-md-offset-3">
+    <%= form_for [@project, @task, @comment] do |f| %>
+      <%# f.label :description %>
+      <div class = "form-group col-md-9">
+        <%= f.text_area :description, size: "90%", class: "form-control" %><br>
+        <%= f.submit "Add Comment", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
