@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter :authorize
+  before_action :set_user_access, only: [:show, :edit, :update, :destroy]
   layout "internal"
-  
+
 
   def index
-  @users = User.all.reverse
+  @users = (User.all.reverse - [current_user])
   end
 
   def new
@@ -53,6 +54,13 @@ class UsersController < ApplicationController
 
 
 private
+
+  def set_user_access
+    unless @user.id == current_user.id || current_user.admin
+      render :file => 'public/404.html', :status => :not_found, :layout => false
+    end
+  end
+
   def set_user
     @user = User.find(params[:id])
   end

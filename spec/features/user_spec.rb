@@ -49,8 +49,8 @@ describe 'user can CRUD User' do
     fill_in "Email", with: "fbhewitt@gmail.com"
     fill_in "Password", with: 'password'
     click_button 'Sign In'
-    visit "users/#{user.id}/edit"
-    click_on 'Delete User'
+    visit "users"
+    click_on 'Delete'
     expect(page).to have_no_content("joe bart")
   end
 end
