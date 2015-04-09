@@ -4,12 +4,12 @@ describe 'user can CRUD a Task' do
   scenario 'user can create a Task' do
     user = User.create(first_name: 'finn', last_name: 'hewitt', email: 'fbhewitt@gmail.com', password: 'password')
     project = Project.create(name: "projectile")
+    membership = Membership.create(user_id: user.id, project_id: project.id)
     visit '/sign-in'
     fill_in "Email", with: "fbhewitt@gmail.com"
     fill_in "Password", with: 'password'
     click_button 'Sign In'
-    visit '/projects'
-    click_on "projectile"
+    find("#clickme").click
     click_on "0 Tasks"
     click_on "Add Task"
     fill_in 'task_description', :with => "capy_test"

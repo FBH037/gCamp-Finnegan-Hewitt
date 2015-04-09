@@ -17,7 +17,7 @@
     <% @projects.each do |project| %>
     <tr>
 
-      <td ><%= link_to "#{project.name}", project_path(project)%></td>
+      <td ><%= link_to "#{project.name}", project_path(project), id: "clickme"%></td>
       <td>
         <%= project.tasks.count%>
       </td>
