@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-
+  layout "internal"
+  
   def new
     @comment = Comment.new
   end

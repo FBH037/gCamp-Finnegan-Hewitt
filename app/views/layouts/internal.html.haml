@@ -12,6 +12,20 @@
       .container
         .navbar-header
           %a.navbar-brand{:href => projects_path} gCamp
+        .ul-nav.navbar-nav.nav
+          %li.dropdown.ul-nav
+            %a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#"}
+              Projects
+              %b.caret
+            %ul.dropdown-menu{"role" => "menu"}
+              %li
+                - current_user.projects.each do |project|
+                  %a{:href => project_path(project)}
+                    = project.name
+                %a{:href => new_project_path} New Project
+          %li
+            %a{:href => users_path} Users
+
         .ul-nav.navbar-nav.navbar-right.nav
           - if current_user
             %li
@@ -40,7 +54,7 @@
     .container
       .page-footer
         .row
-          .col-xs-10
+          .col-xs-offset-4.col-xs-6
 
             %a.button{:href => "/about"} About
             |
@@ -53,13 +67,3 @@
             = link_to "Users", users_path
             |
             = link_to "Projects", projects_path
-
-          .col-xs-2{:align => "right"}
-            =link_to(image_tag("linked_in-f852478f8950eb3fca3367cb545aaa52.jpg", class: "img-footer"), "https://linkedin.com/pub/finnegan-hewitt/71/94a/632")
-            =link_to(image_tag("GitHub-de8164cc6a609537cfdab331e002ebb3.png", class: "img-footer"), "https://github.com/FBH037")
-            =link_to(image_tag("Twitter-0c8c529fb7181e05ab5c30416e3a70fa.png", class: "img-footer"), "https://twitter.com/@fbhewitt")
-            =link_to(image_tag("galvanize-g-b3da24895ed7d4fd33c43d9226c16242.png", class: "img-footer"), "https://students.gschool.it/students/203")
-
-            %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
-            -# %script{:src => "../../dist/js/bootstrap.min.js"}
-            -# %script{:src => "../../assets/js/ie10-viewport-bug-workaround.js"}

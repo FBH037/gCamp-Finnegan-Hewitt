@@ -1,6 +1,7 @@
 class MembershipsController < ApplicationController
   before_action :set_project
   before_action :set_memberships
+  layout "internal"
 
   def index
     @membership = Membership.new
@@ -12,7 +13,6 @@ class MembershipsController < ApplicationController
 
   def create
     @membership = Membership.new(membership_params)
-
     @membership.project_id = @project.id
     if @membership.save
       redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was successfully added"
