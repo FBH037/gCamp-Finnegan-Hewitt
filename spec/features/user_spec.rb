@@ -25,23 +25,35 @@ describe 'user can CRUD User' do
     visit "/users/#{user.id}"
     expect(page).to have_content('finn hewitt')
   end
-  scenario 'user can update a User' do
-    User.destroy_all
-    user = User.create(first_name: 'finn', last_name: 'hewitt', email: 'fbhewitt@gmail.com', password: 'password')
+
+  scenario 'admin can view a show page for a User' do
+    admin = User.create(first_name: 'finn', last_name: 'hewitt', email: 'fbhewitt@gmail.com', password: 'password', admin: true)
+    user2 = User.create(first_name: 'josh', last_name: 'churlick', email: 'joshchurlick@gmail.com', password: 'password')
     visit '/sign-in'
     fill_in "Email", with: "fbhewitt@gmail.com"
     fill_in "Password", with: 'password'
     click_button 'Sign In'
-    visit '/users'
+    visit "/users/#{user2.id}"
+    expect(page).to have_content('josh churlick')
+  end
+
+  scenario 'admin can update a User' do
+    admin = User.create(first_name: 'finn', last_name: 'hewitt', email: 'fbhewitt@gmail.com', password: 'password', admin: true)
+    user2 = User.create(first_name: 'josh', last_name: 'churlick', email: 'joshchurlick@gmail.com', password: 'password')
+    visit '/sign-in'
+    fill_in "Email", with: "fbhewitt@gmail.com"
+    fill_in "Password", with: 'password'
+    click_button 'Sign In'
+    visit "/users/#{user2.id}"
     click_on 'Edit'
     fill_in 'First name', :with => 'roe'
     fill_in 'Last name', :with => 'bart'
     fill_in 'Email', :with => 'jb@reen.com'
     fill_in 'Password', :with => 'password'
-    # fill_in 'Password confirmation', :with => 'password'
     click_on 'Update User'
     expect(page).to have_content('roe bart')
   end
+  
   scenario 'user can destroy a User' do
     User.create(first_name: 'finn', last_name: 'hewitt', email: 'fbhewitt@gmail.com', password: 'password')
     user = User.create(first_name: 'joe', last_name: 'bart', email: 'fbhew@gmail.com', password: 'password')

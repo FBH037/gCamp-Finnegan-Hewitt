@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def authorize
-    redirect_to root_path, notice: "Please Log In" if current_user.nil?
+    if current_user.nil?
+      session[:return_to] = request.original_url
+      redirect_to signin_path, notice: "Please Log In"
+    end
   end
+
 end
