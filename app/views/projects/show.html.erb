@@ -1,25 +1,24 @@
 <h1 class = "page-header"><%=@project.name %>
-
-  <a class= 'btn btn-info pull-right' <%= link_to 'Edit', edit_project_path(@project)%>
-
-
+  <% if current_user.memberships.find_by(project_id: @project.id).role == "owner" %>
+    <a class= 'btn btn-info pull-right' <%= link_to 'Edit', edit_project_path(@project)%>
+  <% end %>
 </h1>
 <ol class= 'breadcrumb'>
   <li><a href= '/projects'>Projects</a></li>
   <li class='active'><%=@project.name%></li>
 </ol>
-
 <%= link_to "#{ pluralize(@project.tasks.count, "Task")}", project_tasks_path(@project) %>
 <br>
 <%= link_to "#{ pluralize(@project.memberships.count, "Membership")}", project_memberships_path(@project) %>
-
-<div class = "row">
-  <div class = "col-md-12">
-    <div class= "well">
-      <h4>Delete</h4>
-      <p>
-        <%= "Deleting this project will also delete #{ pluralize(@project.memberships.count, "Membership")}, #{ pluralize(@project.tasks.count, "Task")}, and associated comments." %>
-      </p>
-      <a class= 'btn btn-danger' <%= link_to 'Delete', project_path(@project), method: :delete, data: { confirm: 'Are you sure?' } %>    </div>
+<% if current_user.memberships.find_by(project_id: @project.id).role == "owner" %>
+  <div class = "row">
+    <div class = "col-md-12">
+      <div class= "well">
+        <h4>Delete</h4>
+        <p>
+          <%= "Deleting this project will also delete #{ pluralize(@project.memberships.count, "Membership")}, #{ pluralize(@project.tasks.count, "Task")}, and associated comments." %>
+        </p>
+        <a class= 'btn btn-danger' <%= link_to 'Delete', project_path(@project), method: :delete, data: { confirm: 'Are you sure?' } %>    </div>
+    </div>
   </div>
-</div>
+<% end %>

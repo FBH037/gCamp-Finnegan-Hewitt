@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
+  before_filter :authorize
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_project
-  before_filter :authorize
+  before_action :set_project_access
   layout "internal"
-  
+
 
   def index
     @tasks = Task.all

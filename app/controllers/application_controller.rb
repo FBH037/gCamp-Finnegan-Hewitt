@@ -15,4 +15,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_project_access
+    unless @project.memberships.find_by(user_id: current_user.id) || current_user.admin
+      redirect_to projects_path, alert: "You do not have access to that project"
+    end
+  end
+
+  def redirect_non_owners
+    unless current_user.memberships.find_by(project_id: @project.id).role == "owner"
+      redirect_to projects_path, alert: "You do not have access to that project"
+    end
+  end
+
 end

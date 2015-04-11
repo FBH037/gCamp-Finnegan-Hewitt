@@ -2,6 +2,7 @@ class ProjectsController<ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_filter :authorize
   before_action :set_project_access, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_non_owners, only: [:edit, :update, :destroy]
   layout "internal"
 
   def index
@@ -56,9 +57,4 @@ class ProjectsController<ApplicationController
     params.require(:project).permit(:name)
   end
 
-  def set_project_access
-    unless @project.memberships.find_by(user_id: current_user.id) || current_user.admin
-      redirect_to projects_path, alert: "You do not have access to that project"
-    end
-  end
 end

@@ -1,6 +1,7 @@
 class MembershipsController < ApplicationController
   before_action :set_project
   before_action :set_memberships
+  before_action :set_project_access
   layout "internal"
 
   def index
