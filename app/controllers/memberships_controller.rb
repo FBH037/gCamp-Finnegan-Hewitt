@@ -2,6 +2,7 @@ class MembershipsController < ApplicationController
   before_action :set_project
   before_action :set_memberships
   before_action :set_project_access
+  before_action :redirect_non_owners, only: [:new, :create, :edit, :update, :destroy]
   layout "internal"
 
   def index

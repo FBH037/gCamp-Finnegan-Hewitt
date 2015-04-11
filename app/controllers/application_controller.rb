@@ -25,6 +25,6 @@ class ApplicationController < ActionController::Base
     unless current_user.memberships.find_by(project_id: @project.id).role == "owner"
       redirect_to projects_path, alert: "You do not have access to that project"
     end
-  end
+  end 
 
 end

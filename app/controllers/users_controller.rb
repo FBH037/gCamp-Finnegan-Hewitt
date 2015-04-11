@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter :authorize
   before_action :set_user_access, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_edit, only: [:edit, :update, :destroy]
   layout "internal"
 
 
@@ -56,8 +57,14 @@ class UsersController < ApplicationController
 private
 
   def set_user_access
-    unless @user.id == current_user.id || current_user.admin
+    unless @user.id == current_user.id || current_user.admin || @user.memberships.any? {|membership| current_user.memberships.map{|current_mem| current_mem.project_id}.include?(membership.project_id)}
       render :file => 'public/404.html', :status => :not_found, :layout => false
+    end
+  end
+
+  def set_user_edit
+    unless @user.id == current_user.id || current_user.admin
+        render :file => 'public/404.html', :status => :not_found, :layout => false
     end
   end
 
