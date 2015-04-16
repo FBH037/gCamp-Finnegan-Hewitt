@@ -2,7 +2,7 @@ class MembershipsController < ApplicationController
   before_action :set_project
   before_action :set_memberships
   before_action :set_project_access
-  before_action :redirect_non_owners, only: [:new, :create, :edit, :update, :destroy]
+  before_action :redirect_non_owners, only: [:new, :create, :edit, :update]
   layout "internal"
 
   def index
@@ -34,12 +34,18 @@ class MembershipsController < ApplicationController
 
   def destroy
     @membership = Membership.find(params[:id])
-    if @membership.project.users.count != 1
-      if @membership.destroy
-        redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was successfully removed"
+    if @membership.user_id == current_user.id || current_user.admin?
+      if @membership.project.users.count != 1
+        if @membership.destroy
+          if @membership.user_id == current_user.id
+            redirect_to projects_path, notice: "#{@membership.user.full_name} was successfully removed"
+          else
+            redirect_to project_memberships_path(@project), notice: "#{@membership.user.full_name} was successfully removed"
+          end
+        end
+      else
+        redirect_to project_memberships_path(@project, error: "Unable to delete last member of project")
       end
-    else
-      redirect_to project_memberships_path(@project, error: "Unable to delete last member of project")
     end
   end
 

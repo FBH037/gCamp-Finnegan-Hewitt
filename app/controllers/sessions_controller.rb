@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       if session[:return_to]
         redirect_to session[:return_to], notice: "Logged In"
       else
-        redirect_to root_path, notice: "Logged In"
+        redirect_to projects_path, notice: "Logged In"
       end
     else
       @error = "Email or password is invalid"

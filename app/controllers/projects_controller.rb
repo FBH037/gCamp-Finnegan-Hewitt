@@ -25,7 +25,7 @@ class ProjectsController<ApplicationController
     @project = Project.new(project_params)
     if @project.save
       Membership.new(user_id: current_user.id, project_id: @project.id, role: :owner).save
-      redirect_to project_tasks_path(@project), notice: 'Project was successfully created.'
+      redirect_to project_tasks_path(@project), notice: 'Project was successfully created'
     else
     render :new
     end
@@ -36,7 +36,7 @@ class ProjectsController<ApplicationController
 
   def update
   if @project.update(project_params)
-    redirect_to project_tasks_path(@project), notice: 'Project was successfully updated.'
+    redirect_to project_tasks_path(@project), notice: 'Project was successfully updated'
   else
     render :edit
   end

@@ -32,6 +32,8 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:truncation)
   end
 
+  config.render_views
+
   config.around(:each) do |example|
     DatabaseCleaner.cleaning do
       example.run

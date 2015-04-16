@@ -9,8 +9,7 @@ describe 'user can register' do
     fill_in 'Password confirmation', :with => 'password'
     click_button 'Sign Up'
     expect(page).to have_content('joe bartlett')
-    expect(page).to have_content("User was successfully created")
-    expect(page).to have_content("Your life, organized.")
+    expect(page.current_path).to eq new_project_path
   end
   scenario 'user can not register without first_name' do
     visit '/sign-up'

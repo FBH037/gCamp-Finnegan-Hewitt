@@ -39,9 +39,7 @@
             <% end  %>
           </td>
           <td>
-            <%= link_to project_membership_path(@project, membership), method: :delete, class: "btn btn-default" do %>
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-            <% end %>
+            <%= link_to '', project_membership_path(@project, membership), class: 'glyphicon glyphicon-remove ', id: 'ex',  method: :delete, data: { confirm: 'Are you sure?' } %>
           </td>
         </tr>
       <%end %>
@@ -58,6 +56,14 @@
           <td>
             <%= membership.role %>
           </td>
+          <% if membership.user_id == current_user.id %>
+            <td>
+              <%= link_to '', project_membership_path(@project, membership), class: 'glyphicon glyphicon-remove ', id: 'ex',  method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          <% else %>
+            <td>
+            </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

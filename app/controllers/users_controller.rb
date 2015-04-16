@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   before_action :set_user_edit, only: [:edit, :update, :destroy]
   layout "internal"
 
-
   def index
     @users = (User.all.reverse - [current_user])
   end
@@ -53,7 +52,6 @@ class UsersController < ApplicationController
     redirect_to users_path, notice: 'User was successfully destroyed.'
   end
 
-
 private
 
   def set_user_access
@@ -79,6 +77,5 @@ private
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
   end
-
 
 end
