@@ -1,5 +1,5 @@
 
-task cleanup_database: :environment do
+task cleanup: :environment do
 
   Membership.all.select{|membership| membership.user == nil}.each do |membership|
     membership.destroy
