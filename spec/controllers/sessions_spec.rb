@@ -24,7 +24,7 @@ describe "Sessions controller permissions:" do
     {email: user.email,
       password: user.password}
     delete :destroy
-      response.should redirect_to root_path
+      response.should redirect_to signin_path
     end
 
   end
