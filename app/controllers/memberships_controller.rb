@@ -44,7 +44,7 @@ class MembershipsController < ApplicationController
           end
         end
       else
-        redirect_to project_memberships_path(@project, error: "Unable to delete last member of project")
+        redirect_to project_memberships_path(@project, error: "Projects much have at least one owner")
       end
     end
   end
