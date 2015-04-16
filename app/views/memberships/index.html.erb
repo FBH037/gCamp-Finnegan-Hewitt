@@ -5,7 +5,8 @@
   <li><%=link_to @project.name, project_path(@project)%></li>
   <li class='active'>Memberships</li>
 </ol>
-<% if current_user.memberships.find_by(project_id: @project.id).role == "owner" %>
+
+<% if current_user.admin || current_user.memberships.find_by(project_id: @project.id).role == "owner" %>
   <%= render partial: "shared/errors", locals: {object: @membership} %>
   <% if params[:error] %>
   <div id="error_explanation" class= "col-md-offset-1 col-md-10 alert alert-danger">
